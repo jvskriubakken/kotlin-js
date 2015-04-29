@@ -11,11 +11,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>kotlin-example-js</artifactId>
+    <artifactId>kotlin-js-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <kotlin.version>0.11.91.1</kotlin.version>
+        <!--kotlin.version>0.11.91.1</kotlin.version-->
+        <kotlin.version>0.1-SNAPSHOT</kotlin.version>
     </properties>
 
     <dependencies>
@@ -28,14 +29,13 @@
 
     <build>
         <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+        <!--testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory-->
 
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
                 <version>${kotlin.version}</version>
-
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -44,7 +44,7 @@
                             <goal>js</goal>
                         </goals>
                         <configuration>
-                            <outputFile>${project.build.outputDirectory}/${project.artifactId}.js</outputFile>
+                            <outputFile>${project.build.outputDirectory}/../../js/${project.artifactId}.js</outputFile>
                             <metaFile>${project.build.outputDirectory}/${project.artifactId}.meta.js</metaFile>
                         </configuration>
                     </execution>
@@ -52,14 +52,25 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>attach-sources</id>
+                        <id>unpack</id>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>jar</goal>
+                            <goal>unpack</goal>
                         </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jetbrains.kotlin</groupId>
+                                    <artifactId>kotlin-js-library</artifactId>
+                                    <version>${kotlin.version}</version>
+                                    <outputDirectory>${project.build.outputDirectory}/../../js</outputDirectory>
+                                    <includes>*.js</includes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
