@@ -22,19 +22,11 @@ import kotlin.js.dom.html.document
 public class HelloWorld {
 }
 
-val container = document.getElementById("container") as HTMLElement
-
 fun main(vararg args: String) {
-    println("JavaScript generated through Kotlin")
 
-    sayHelloViaDom()
-    sayHelloViaInlinedJavaScript()
-}
+    println("JavaScript generated through Kotlin");
 
-private fun sayHelloViaDom() {
-    container.textContent = "Hello, DOM! Kotlin is writing..."
-}
-
-private fun sayHelloViaInlinedJavaScript() {
-    js("document.writeln('Hello, from inlined JavaScript in Kotlin!')")
+    document.getElementById("insert-here").textContent = "I was here";
+    //sayHelloViaDom()
+    //sayHelloViaInlinedJavaScript()
 }

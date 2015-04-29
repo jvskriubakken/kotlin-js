@@ -28,8 +28,10 @@
                             <outputDirectory>${project.build.directory}/kotlin-js-resources</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>../kotlin-example-js/target/classes</directory>
-                                    <filtering>true</filtering>
+                                    <directory>../kotlin-js-example/js</directory>
+                                    <excludes>
+                                        <exclude>**/*.jar</exclude>
+                                    </excludes>
                                 </resource>
                             </resources>
                         </configuration>
