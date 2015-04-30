@@ -29,9 +29,6 @@
                             <resources>
                                 <resource>
                                     <directory>../kotlin-js-example/js</directory>
-                                    <excludes>
-                                        <exclude>**/*.jar</exclude>
-                                    </excludes>
                                 </resource>
                             </resources>
                         </configuration>
