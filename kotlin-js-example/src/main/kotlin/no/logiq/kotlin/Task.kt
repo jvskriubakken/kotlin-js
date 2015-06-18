@@ -1,5 +1,7 @@
 package no.logiq.kotlin
 
-public class Task {
+import no.logiq.common.Common
+
+public class Task(val test: String) : Common() {
 
 }
