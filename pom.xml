@@ -23,6 +23,7 @@
         <version.jetty.plugin>9.2.10.v20150310</version.jetty.plugin>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.jar.plugin>2.6</maven.jar.plugin>
 
         <kotlin.version>0.12.200</kotlin.version>
     </properties>

@@ -15,22 +15,39 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>copy-kotlin-js</id>
-                        <phase>process-resources</phase>
+                        <id>unpack</id>
+                        <phase>compile</phase>
                         <goals>
-                            <goal>copy-resources</goal>
+                            <goal>unpack</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/kotlin-js-resources</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>../kotlin-js-example/js</directory>
-                                </resource>
-                            </resources>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>org.jetbrains.kotlin</groupId>
+                                    <artifactId>kotlin-js-library</artifactId>
+                                    <version>${kotlin.version}</version>
+                                    <outputDirectory>${project.build.directory}/kotlin-js-resources</outputDirectory>
+                                    <includes>*.js</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>no.logiq.kotlin.javascript</groupId>
+                                    <artifactId>kotlin-js-common</artifactId>
+                                    <version>1.0-SNAPSHOT</version>
+                                    <outputDirectory>${project.build.directory}/kotlin-js-resources</outputDirectory>
+                                    <includes>*.js</includes>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>no.logiq.kotlin.javascript</groupId>
+                                    <artifactId>kotlin-js-example</artifactId>
+                                    <version>1.0-SNAPSHOT</version>
+                                    <outputDirectory>${project.build.directory}/kotlin-js-resources</outputDirectory>
+                                    <includes>*.js</includes>
+                                </artifactItem>
+                            </artifactItems>
                         </configuration>
                     </execution>
                 </executions>
