@@ -58,7 +58,7 @@
                         </goals>
                         <configuration>
                             <outputFile>${project.build.outputDirectory}/../../js/${project.artifactId}.js</outputFile>
-                            <metaFile>${project.build.outputDirectory}/${project.artifactId}.meta.js</metaFile>
+                            <metaInfo>true</metaInfo>
                         </configuration>
                     </execution>
                 </executions>
