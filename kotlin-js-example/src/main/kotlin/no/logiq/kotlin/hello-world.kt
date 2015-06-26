@@ -1,5 +1,6 @@
 package no.logiq.kotlin
 
+import no.logiq.common.CommonGreeter
 import kotlin.browser.document
 
 
@@ -11,7 +12,11 @@ fun main(vararg args: String) {
 
     println("JavaScript generated through Kotlin");
 
-    document.getElementById("insert-here")!!.textContent = "I was here";
+    val common = CommonGreeter()
+    val task = SpecialisedGreeter("test");
+    document.getElementById("insert-here")!!.textContent =
+            "I was here: common: ${common}, task: ${task}";
+
     //sayHelloViaDom()
     //sayHelloViaInlinedJavaScript()
 }
