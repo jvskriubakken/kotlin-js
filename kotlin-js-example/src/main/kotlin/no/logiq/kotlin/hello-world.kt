@@ -11,5 +11,5 @@ fun main(vararg args: String) {
     val commonGreeter = CommonGreeter()
     val specializedGreeter = SpecialisedGreeter("test");
     document.getElementById("insert-here")!!.textContent =
-            "commonGreeter greets: ${commonGreeter}, specializedGreeter greets: ${specializedGreeter.greet()}";
+            "commonGreeter greets: ${commonGreeter.greet()}, specializedGreeter greets: ${specializedGreeter.greet()}";
 }
